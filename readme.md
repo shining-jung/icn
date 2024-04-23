@@ -13,7 +13,7 @@
 -   목적지, 편명 검색
 -   항목 별 터미널 출/입국장 별 예상혼잡도 데이터 제공
 
-## 개발 이슈 및 처리방법
+## 이슈 및 처리방법
 
 #### 요청쿼리의 부재
 
@@ -28,11 +28,11 @@
 
 <details>
     <summary> # 인천국제공항공사\_여객편 주간 운항 현황 </summary>
-    **요청**
+    URL : <a href="https://www.data.go.kr/data/15095074/openapi.do" target="_blank">https://www.data.go.kr/data/15095074/openapi.do</a>
 
 </details>
 <details>
-    <summary> # 인천국제공항공사 승객예고 - 출입국별 </summary>
-    
+    <summary> # 인천국제공항공사_승객예고 - 출입국별(국문) </summary>
+    URL : <a href="https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15095066" target="_blank">https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15095066</a>
    
 </details>
