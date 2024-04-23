@@ -64,12 +64,12 @@ select {
 }
 .main .airplane {
     position: absolute;
-    top: 65%;
-    left: 58%;
+    top: 66%;
+    left: 28%;
     transform: translate(-50%, -50%);
     width: 65.938%;
-    max-width: 1266px;
-    padding-bottom: 17.188%;
+    max-width: 1131px;
+    padding-bottom: 16.788%;
     filter: brightness(80%);
     background: url('../img/airplane.png') no-repeat center center;
     background-size: 100%;
@@ -273,7 +273,7 @@ select {
     background-size: cover;
 }
 .sub .entry {
-    background: url('../img/sub_bg02.jpg') no-repeat center 84%;
+    background: url('../img/sub_bg02.jpg') no-repeat center 80%;
     background-size: cover;
 }
 .sub .formWrap .inner {
