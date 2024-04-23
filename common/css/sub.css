@@ -1,0 +1,476 @@
+.depListHeader,
+.depList {
+    width: 100%;
+}
+
+.depListHeader li,
+.depList li {
+    border: 1px solid var(--color-line1);
+    margin-bottom: 0.8rem;
+    border-radius: 0.8rem;
+    background-color: var(--color-w);
+}
+
+.depListHeader li {
+    background: var(--color-lg);
+    color: var(--color-gb);
+    font-weight: 800;
+}
+
+.depList li {
+    transition: 0.3s;
+    color: var(--color-g1);
+}
+
+.rowItem {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.rowItem::before {
+    content: '';
+    width: 0.7rem;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    background: transparent;
+    z-index: 0;
+}
+
+.rowItem > div {
+    padding: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12%;
+    text-align: center;
+}
+.rowItem .itemTerminal {
+    width: 9%;
+}
+
+.rowItem .itemTime {
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.rowItem .itemDestination {
+    width: 13%;
+    justify-content: flex-start;
+}
+.depListHeader .rowItem .itemDestination {
+    justify-content: center;
+}
+.rowItem .itemTime span {
+    font-size: 1.4rem;
+    color: var(--color-g2);
+}
+.rowItem .itemTime strong {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-gb);
+}
+.rowItem .itemTime span.delayTime {
+    text-decoration: line-through;
+}
+.rowItem .itemAirline {
+    flex-direction: column;
+    width: 16%;
+}
+.rowItem .itemAirline > div {
+    width: 14rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.rowItem .itemAirline > div > img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+.rowItem .itemAirline > span {
+    margin-top: 0.4rem;
+    font-size: 1.4rem;
+    color: var(--color-b);
+}
+.rowItem .itemAirline > span > span {
+    color: var(--color-g);
+}
+.rowItem .itemFlightId {
+    color: var(--color-b);
+}
+.depListHeader .rowItem .itemFlightId {
+    color: var(--color-gb);
+}
+.rowItem .itemDestination {
+    flex-direction: row;
+}
+.rowItem .itemDestination strong {
+    color: var(--color-b);
+    font-weight: 600;
+    padding-right: 0.4rem;
+}
+.rowItem .itemDestination span {
+    font-weight: 300;
+    color: var(--color-g2);
+}
+.rowItem .codeShare {
+    width: 100%;
+    padding-left: 2.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border-top: 1px solid #ddd;
+    gap: 0.5rem;
+}
+.rowItem .codeShare strong {
+    color: #5f5f5f;
+    font-weight: 300;
+}
+.rowItem .codeShare strong span:first-of-type {
+    color: var(--color-g);
+    font-weight: 600;
+}
+.rowItem .codeShare strong span {
+    color: #ff6600;
+}
+.rowItem .codeShare div {
+    width: 100%;
+    text-align: left;
+}
+.rowItem .codeShare div span {
+    font-size: 1.5rem;
+    color: #5f5f5f;
+}
+.rowItem .codeShare div span::after {
+    content: 'I';
+    padding: 0 0.8rem;
+    font-weight: 300;
+    color: #ddd;
+}
+.rowItem .codeShare div span:last-of-type::after {
+    display: none;
+}
+
+.step01 .itemReMark span,
+.step01 .rowItem::before {
+    background: var(--color-g);
+}
+.step03 .itemReMark span,
+.step03 .rowItem::before {
+    background: #a4a4a4;
+    color: var(--color-b);
+}
+.step04 .itemReMark span,
+.step04 .rowItem::before {
+    background: #2b85f9;
+}
+.step02 .itemReMark span,
+.step02 .rowItem::before,
+.step05 .itemReMark span,
+.step05 .rowItem::before {
+    background: #fb4f32;
+    color: var(--color-b);
+}
+.step06 .itemReMark span,
+.step06 .rowItem::before {
+    background: #4c4e4e;
+}
+.step07 .itemReMark span,
+.step07 .rowItem::before {
+    background: #f79a1b;
+}
+
+.rowItem .itemReMark span {
+    width: 10rem;
+    height: 3.8rem;
+    font-size: 1.4rem;
+    color: var(--color-w);
+    line-height: 3.8rem;
+    border-radius: 0.4rem;
+}
+
+.rowItemAco {
+    overflow: hidden;
+    transition: 0.5s;
+}
+.rowItemAco > div {
+    padding: 2rem 3rem;
+    background: #164138;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    font-weight: 300;
+    letter-spacing: -0.015em;
+}
+.rowItemAco > div p:nth-of-type(1) {
+    color: var(--color-w);
+    font-weight: 600;
+}
+.rowItemAco > div p.t_line {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed rgba(255, 255, 255, 0.5);
+}
+.rowItemAco > div p.t_line::before {
+    top: 1rem;
+}
+.rowItemAco > div .dec {
+    position: relative;
+    padding-left: 1.2rem;
+}
+.rowItemAco > div strong {
+    color: var(--color-w);
+}
+.rowItemAco > div .arrival strong {
+    color: #00ffca;
+}
+.rowItemAco > div p.af .rowItemAco > div .totalLevel {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+.rowItemAco > div .totalLevel::before {
+    content: '';
+    display: inline-block;
+    font-size: 1.4rem;
+    border-radius: 0.2rem;
+    padding: 0 1rem;
+    margin-right: 0.5rem;
+    color: var(--color-w);
+}
+.rowItemAco > div .totalLevel.step01::before {
+    content: '원활';
+    background: #539eff;
+}
+.rowItemAco > div .totalLevel.step02::before {
+    content: '보통';
+    background: var(--color-lg);
+}
+.rowItemAco > div .totalLevel.step03::before {
+    content: '약간혼잡';
+    background: #cfb125;
+}
+.rowItemAco > div .totalLevel.step04::before {
+    content: '혼잡';
+    background: #f79a1b;
+}
+.rowItemAco > div .totalLevel.step05::before {
+    content: '매우혼잡';
+    background: #fb4f32;
+}
+
+.rowItemAco > div .dec::before {
+    content: '-';
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@media (min-width: 640px) {
+    .depList .rowItem {
+        cursor: pointer;
+    }
+    .depList li:hover {
+        transform: scale(1.005);
+        box-shadow: 0px 2px 3px 1px rgb(161 161 161 / 30%);
+        background: #f0f7f5;
+    }
+}
+@media (max-width: 1240px) {
+    .rowItem > div {
+        width: 16%;
+    }
+    .rowItem .itemTerminal {
+        width: 12%;
+    }
+    .rowItem > div.itemFlightId,
+    .rowItem > div.itemGate {
+        width: 8%;
+    }
+    .rowItem > div.itemchkin {
+        width: 10%;
+    }
+}
+
+@media (max-width: 990px) {
+    .depListHeader {
+        display: none;
+    }
+    .rowItem {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding: 2.4rem 2.4rem 2.4rem 2.4rem;
+    }
+    .rowItem > div {
+        width: auto;
+        position: relative;
+        padding: 0;
+    }
+
+    .rowItem .itemTerminal {
+        order: -2;
+        width: 50%;
+        display: flex;
+        justify-content: flex-start;
+    }
+    .rowItem .itemTime {
+        position: absolute;
+        display: flex;
+        align-items: flex-end;
+        right: 2.4rem;
+        top: 5.2rem;
+        gap: 0.5rem;
+    }
+    .rowItem .itemDestination {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        order: -1;
+        justify-content: flex-start;
+        font-size: 2rem;
+        padding: 1rem 0 0.5rem 0;
+    }
+
+    .rowItem .itemAirline {
+        display: flex;
+        width: auto;
+        padding-left: 0;
+        padding: 0.5rem 30% 0.5rem 0;
+    }
+    .rowItem .itemAirline span {
+        margin-top: 0;
+    }
+    .rowItem .itemAirline > span::before {
+        content: '[';
+        padding-right: 0.3rem;
+    }
+    .rowItem .itemAirline > span::after {
+        content: ']';
+        padding-left: 0.3rem;
+    }
+    .rowItem .itemAirline > div {
+        display: none;
+    }
+    .rowItem > div.itemFlightId {
+        width: auto;
+        order: -1;
+        display: flex;
+        justify-content: flex-start;
+        padding: 0.5rem 0.4rem 0.5rem 0;
+    }
+    .rowItem .itemFlightId::before {
+        content: '편명 : ';
+        padding-right: 0.4rem;
+    }
+    .rowItem > div.itemchkin {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        padding-top: 0.5rem;
+    }
+    .rowItem > div.itemchkin::before {
+        content: '체크인 :';
+        padding-right: 0.4rem;
+    }
+    .rowItem > div.itemGate {
+        display: none;
+    }
+    .rowItem .itemReMark span {
+        display: flex;
+        align-items: center;
+        width: auto;
+        height: auto;
+        font-size: 1.6rem;
+        color: unset;
+        line-height: 1;
+        border-radius: 0;
+        background: none;
+    }
+    .rowItem .itemReMark {
+        order: -2;
+        width: 50%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .rowItem .itemReMark span::before {
+        content: '';
+        width: 1rem;
+        height: 1rem;
+        display: block;
+        border-radius: 1rem;
+        margin-right: 0.4rem;
+    }
+    .step01 .rowItem .itemReMark span {
+        color: var(--color-g);
+    }
+    .step01 .itemReMark span::before {
+        background-color: var(--color-g);
+    }
+    .step03 .rowItem .itemReMark span {
+        color: #a4a4a4;
+    }
+    .step04 .rowItem .itemReMark span {
+        color: #2b85f9;
+    }
+    .step04 .itemReMark span::before {
+        background: #2b85f9;
+    }
+    .step02 .rowItem .itemReMark span,
+    .step05 .rowItem .itemReMark span {
+        color: #fb4f32;
+    }
+    .step02 .itemReMark span::before,
+    .step05 .itemReMark span::before {
+        background: #fb4f32;
+    }
+    .step06 .itemReMark span::before {
+        background-color: #4c4e4e;
+    }
+    .step07 .itemReMark span::before {
+        background-color: #f79a1b;
+    }
+    .rowItem .codeShare {
+        padding-left: 0;
+        border-top: 0;
+    }
+    .rowItem .codeShare strong {
+        display: none;
+    }
+    .rowItem .codeShare div span {
+        display: inline-block;
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+        font-size: 1.3rem;
+    }
+    .rowItem .codeShare div span:first-child::before {
+        content: '공동운항 : ';
+    }
+    .rowItem .codeShare div span::after {
+        content: ', ';
+        padding: 0 0.4rem 0 0;
+        color: #5f5f5f;
+    }
+}
+
+@media (max-width: 420px) {
+    .rowItem {
+        padding-top: 1.6rem;
+        padding-bottom: 1.6rem;
+        padding-right: 1.6rem;
+    }
+    .rowItem .itemTime {
+        top: 4.5rem;
+        right: 1.6rem;
+    }
+    .rowItem .itemDestination,
+    .rowItem .itemAirline,
+    .rowItem > div.itemchkin {
+        padding-right: 35%;
+    }
+}
