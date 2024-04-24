@@ -63,9 +63,8 @@ https://www.data.go.kr/data/15095074/openapi.do <br>
 2.  Slave : masterflightid(코스쉐어 마스터의 편명)값을 키로 Master의 flightId와 일치하는 항목을 찾아 Slave 중복방지를 하고 Slave배열에 할당합니다.<br>
 3.  Slave 중복검사 - 1번의 재할당된 배열을 반복문으로 검사해서 Slave의 flightId가 SlaveIds에 없는경우에만 배열에 추가 하고 SlaveIds 에도 추가합니다.<br>
 
-##### [결과]
 
-기존 json 데이터 구조 조 (예시)
+기존 json 데이터 구조 (예시)
 
 ```javascript
 "items": [
