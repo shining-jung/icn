@@ -51,14 +51,10 @@
 개발도중 코드쉐어 항공편이 여러개 노출되는 현상을 발견하였고, 로드 후 json 배열을 Master와 Slave로 재할당하는 로직을 나중에 추가했습니다.
 <br><br>
 ### 1.주간스케쥴 Json 데이터 구조화
-
-https://www.data.go.kr/data/15095074/openapi.do <br>
-
 1. json 호출 이후 배열을 재할당하는 함수를 실행합니다.<br>
 2. 호출된 데이터를 순환하여(반복문), 객체 중 코드쉐어(codeshare)를 키로 Master{}, Slave[], SlaveIds{}로 재할당합니다.<br>
 
 ##### [재배열 상세설명]
-
 1.  Master : 새로운 객체를 생성하고 Map에 저장합니다. (Master는 flightId중복가능 - 매일 운항편이 있기때문에...)<br>
 2.  Slave : masterflightid(코스쉐어 마스터의 편명)값을 키로 Master의 flightId와 일치하는 항목을 찾아 Slave 중복방지를 하고 Slave배열에 할당합니다.<br>
 3.  Slave 중복검사 - 1번의 재할당된 배열을 반복문으로 검사해서 Slave의 flightId가 SlaveIds에 없는경우에만 배열에 추가 하고 SlaveIds 에도 추가합니다.<br>
@@ -113,7 +109,6 @@ https://www.data.go.kr/data/15095074/openapi.do <br>
 ```
 <br><br>
 ### 2.페이지생성
-
 검색, 소팅, Pagenation 기능등을 위해 변경되는 변수명을 전역변수에서 let으로 선언 후 재사용합니다<br>
 (dataList (호출한 json데이터들을 재배열한 데이터들) , thisKey, pageSize, page, groupSize 등등 )
 
@@ -146,8 +141,6 @@ const pageData = (data, page, pageSize, day) => {
 3. pagenation을 만드는 함수를 실행합니다.<br>
 <br><br>
 ### 3.입/출국장 승객예고 API 호출
-
-https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15095066<br>
 이 API는 1일치 데이터만 호출하기떄문에 2번 불러야 합니다. (오늘, 내일데이터)<br>
 전단계에서 아이템들을 리스트업을 했다면, 이 API 아이템들을 dataset을 이요하여 리스트 아이템에 배당합니다. 
 
@@ -162,7 +155,6 @@ https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15095066<
    slide 토글시키는 이벤트리스너를 실행합니다. common.js - 204 line (따로 이벤트리스너를 빼고싶었으나 -...이게 심히 거슬림 .. , json등 비동기 처리때문인지 모르겠지만 따로 빼면 실행이 안되어서 이 위치에선 에러가 안나길래 냅뒀음...얻어걸린거라 강사님께 물어봐야함) <br>
 <br><br>
 ### 4.추가기능 함수들 작업
-
 변경되는 값들이 있을때 전역변수를 재할당 하거나 2번(pageData())함수로 바로 보내서 가공하는 형태의 구조로 기능별로 구현했습니다.
 
 1. creatTimeStVal(), getDayKr() --> Html 구조문에서 Selct박스 option값을 생성하는 함수 -> 이벤트리스너로 값들이 변경될때 2번(pageData)함수로 보내고 실행 <br>
