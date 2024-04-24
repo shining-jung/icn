@@ -111,7 +111,7 @@ https://www.data.go.kr/data/15095074/openapi.do <br>
 ]
 ```
 
-### 2.페이지생성 [pageData()함수]
+### 2.페이지생성
 
 검색, 소팅, Pagenation 기능등을 위해 변경되는 변수명을 전역변수에서 let으로 선언 후 재사용합니다<br>
 (dataList (파싱한 json데이터들을 재배열한 데이터들) , thisKey, pageSize, page, groupSize 등등 )
