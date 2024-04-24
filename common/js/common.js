@@ -123,14 +123,20 @@ const pageData = (data, page, pageSize, day) => {
     } else {
         filterKeyword = data;
     }
+
     let filteredData = filterAfterThistime(filterKeyword, thisKey.day);
     const totalResults = filteredData.length;
     const startIndex = (page - 1) * pageSize;
     const endIndex = startIndex + pageSize;
     const pageItems = filteredData.slice(startIndex, endIndex);
     const totalPage = Math.ceil(totalResults / pageSize);
-    creatList(pageItems);
-    updatePagination(page, totalPage, pageSize, day);
+    if (filteredData.length === 0) {
+        depList.innerHTML = `<li class="no_list">검색 결과가 없습니다 </li>`;
+        pagenation.remove();
+    } else {
+        creatList(pageItems);
+        updatePagination(page, totalPage, pageSize, day);
+    }
 };
 
 const newDataList = (dataList) => {

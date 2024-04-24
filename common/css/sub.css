@@ -22,6 +22,10 @@
     color: var(--color-g1);
 }
 
+.depList li.no_list {
+    text-align: center;
+    padding: 1.6rem;
+}
 .rowItem {
     display: flex;
     flex-wrap: wrap;
