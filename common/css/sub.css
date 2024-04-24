@@ -347,11 +347,11 @@
         margin-top: 0;
     }
     .rowItem .itemAirline > span::before {
-        content: '[';
+        content: '(';
         padding-right: 0.3rem;
     }
     .rowItem .itemAirline > span::after {
-        content: ']';
+        content: ')';
         padding-left: 0.3rem;
     }
     .rowItem .itemAirline > div {
@@ -439,6 +439,7 @@
         padding-left: 0;
         border-top: 0;
     }
+    .rowItem .carousel,
     .rowItem .codeShare strong {
         display: none;
     }
@@ -450,6 +451,13 @@
     }
     .rowItem .codeShare div span:first-child::before {
         content: '공동운항 : ';
+    }
+    .rowItem .exitnumber {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .rowItem .exitnumber::before {
+        content: '출구게이트 : ';
     }
     .rowItem .codeShare div span::after {
         content: ', ';

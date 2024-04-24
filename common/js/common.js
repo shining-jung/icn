@@ -152,7 +152,7 @@ const newDataList = (dataList) => {
                     // Slave 항목을 추가하기 전에 flightId 중복 검사
                     if (!masterArr.SlaveIds.has(item.flightId)) {
                         masterArr.Slaves.push(item);
-                        masterArr.SlaveIds.add(item.flightId); // Slave의 flightId를 Set에 추가
+                        masterArr.SlaveIds.add(item.flightId);
                     }
                 });
             }
@@ -193,13 +193,13 @@ const cateatCongestionData = () => {
             creatElm.className = 'rowItemAco';
             creatElm.style.height = '0px';
             creatElm.innerHTML = creatRowItemsSiblingDiv(densityData1[scTime], terminal);
-            item.parentNode.insertBefore(creatElm, rowItem.nextSibling);
+            item.parentNode.insertBefore(creatElm, item.nextSibling);
         } else if (adate == formattedTomorrow.fullDate) {
             const creatElm = document.createElement('div');
             creatElm.className = 'rowItemAco';
             creatElm.style.height = '0px';
             creatElm.innerHTML = creatRowItemsSiblingDiv(densityData2[scTime], terminal);
-            item.parentNode.insertBefore(creatElm, rowItem.nextSibling);
+            item.parentNode.insertBefore(creatElm, item.nextSibling);
         }
         item.addEventListener('click', (e) => {
             const target = e.currentTarget;
