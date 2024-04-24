@@ -108,7 +108,26 @@ Slave : [
 	 {  "airline": "기타항공" "flightId": "Z2889", .....}
 ]
 ```
-
+const pageData = (data, page, pageSize, day) => {
+    let filterKeyword = thisKey.keyword;
+    if (thisKey.keyword) {
+        filterKeyword = data.filter((item) => {
+            const masterResult = item.Master.airport.includes(thisKey.keyword) || item.Master.airportCode.includes(thisKey.keyword) || item.Master.flightId.includes(thisKey.keyword);
+            const slaveResult = item.Slaves.some((slave) => slave.flightId.includes(thisKey.keyword));
+            return masterResult || slaveResult;
+        });
+    } else {
+        filterKeyword = data;
+    }
+    let filteredData = filterAfterThistime(filterKeyword, thisKey.day);
+    const totalResults = filteredData.length;
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    const pageItems = filteredData.slice(startIndex, endIndex);
+    const totalPage = Math.ceil(totalResults / pageSize);
+    creatList(pageItems);
+    updatePagination(page, totalPage, pageSize, day);
+};
 ---
 
 ### 2.페이지생성 [pageData()함수]
@@ -117,7 +136,9 @@ Slave : [
 (dataList (파싱한 json데이터들을 재배열한 데이터들) , thisKey, pageSize, page, groupSize 등등 )
 
 여기서 만든 pageData()함수는 정보들이 변경되었을때 값을 받아와서 처리하고, 리스트업을 하는 코어 역활을 합니다.
+```
 
+```
 1. 검색, 소팅, liast정렬을 위한 함수를 실행합니다.[filter()를 활용 하여 데이터를 처리 함.]<br>
 2. slice()를 이용하여 원하는만큼의 page만 생성 후 html의 리스트를 만드는 함수 실행합니다.<br>
 3. pagenation을 만드는 함수를 실행합니다.<br>
@@ -136,7 +157,7 @@ https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15095066<
    선택자의 dataset을 키값으로 형제관계의 div를 만들어 html을 생성하는 함수을 실행하여 배치합니다.<br>
    <br>
 3. 그리고 2번(pageData)함수에서 이미 만들어진.rowItem을 선택자를 클릭했을때 <br>
-   slide 토글시키는 이벤트리스너를 실행합니다. (따로 이벤트리스너를 빼고싶었으나 -...이게 심히 거슬림 .. , json등 비동기 처리때문인지 모르겠지만 따로 빼면 실행이 안되어서 이 위치에선 에러가 안나길래 냅뒀음...얻어걸린거라 강사님께 물어봐야함) <br>
+   slide 토글시키는 이벤트리스너를 실행합니다. common.js - 204 line (따로 이벤트리스너를 빼고싶었으나 -...이게 심히 거슬림 .. , json등 비동기 처리때문인지 모르겠지만 따로 빼면 실행이 안되어서 이 위치에선 에러가 안나길래 냅뒀음...얻어걸린거라 강사님께 물어봐야함) <br>
 
 ---
 
