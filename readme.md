@@ -65,7 +65,7 @@ https://www.data.go.kr/data/15095074/openapi.do <br>
 
 기존 json 데이터 구조 조 (예시)
 
-```
+```javascript
 "items": [
                 {
                     "airline": "필리핀에어아시아",
@@ -86,26 +86,28 @@ https://www.data.go.kr/data/15095074/openapi.do <br>
 
 변경 후 데이터 구조 (예시)
 
-```
-Master : {
-                    "airline": "필리핀에어아시아",
-                    "flightId": "Z2889",
-                    "scheduleDateTime": "202404170005",
-                    "estimatedDateTime": "202404162347",
-                    "airport": "마닐라",
-                    "chkinrange": "K23-K26",
-                    "gatenumber": "113",
-                    "codeshare": "Master",
-                    "masterflightid": "",
-                    "remark": "출발",
-                    "airportCode": "MNL",
-                    "terminalid": "P02"
-                },
-SlaveIds {'Z2889', 'Z2887', 'Z2889'}
-Slave : [
-	 {  "airline": "무슨아시아" "flightId": "Z2889", .....},
-	 {  "airline": "어쩌구항공 "flightId": "Z2889", .....},
-	 {  "airline": "기타항공" "flightId": "Z2889", .....}
+```javascript
+[
+	Master {
+			    "airline": "필리핀에어아시아",
+			    "flightId": "Z2889",
+			    "scheduleDateTime": "202404170005",
+			    "estimatedDateTime": "202404162347",
+			    "airport": "마닐라",
+			    "chkinrange": "K23-K26",
+			    "gatenumber": "113",
+			    "codeshare": "Master",
+			    "masterflightid": "",
+			    "remark": "출발",
+			    "airportCode": "MNL",
+			    "terminalid": "P02"
+			},
+	SlaveIds {'Z2889', 'Z2887', 'Z2889'},
+	Slave [
+		 {  "airline": "무슨아시아" "flightId": "Z2889", .....},
+		 {  "airline": "어쩌구항공 "flightId": "Z2889", .....},
+		 {  "airline": "기타항공" "flightId": "Z2889", .....}
+	]
 ]
 ```
 
@@ -115,7 +117,7 @@ Slave : [
 (dataList (파싱한 json데이터들을 재배열한 데이터들) , thisKey, pageSize, page, groupSize 등등 )
 
 여기서 만든 pageData()함수는 정보들이 변경되었을때 값을 받아와서 처리하고, 리스트업을 하는 코어 역활을 합니다.
-```
+```javascript
 const pageData = (data, page, pageSize, day) => {
     let filterKeyword = thisKey.keyword;
     if (thisKey.keyword) {
