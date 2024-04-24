@@ -146,10 +146,12 @@ const pageData = (data, page, pageSize, day) => {
 
 ---
 
-### 3.두번쨰 API 호출<br>
+### 3.입출국장 예고 API 호출<br>
 
 https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15095066<br>
 이 API는 1일치 데이터만 호출하기떄문에 2번 불러야 합니다. (오늘, 내일데이터)<br>
+전단계에서 아이템들을 리스트업을 했다면, 이 API 아이템들을 dataset을 이요하여 리스트 아이템에 배당합니다. 
+
 <br>
 
 1. json 파싱 후 함수로 가공 <br>
