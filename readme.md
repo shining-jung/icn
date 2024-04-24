@@ -41,7 +41,7 @@
 [https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15095066](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15095066)
 
 인천공항의 출국승객 예상 혼잡정보에 대한 데이터로 오늘, 내일의 제 1,2여객터미널의 입국심사 , 입국장, 출국장 현황 정보를 제공합니다.
-
+  <br><br>
 ## 작업진행 -- 나중에 수정해서 재정리 
 제가 선택한 API는 요청쿼리는 요청쿼리가 거의 없는 API이기 떄문에 API를 로드 후 슬라이스하여 화면에 부려주는 로직으로 방향을 잡았습니다.
 개발도중 코드쉐어 항공편이 여러개 노출되는 현상을 발견하였고, 로드 후 json 배열을 Master와 Slave로 재할당하는 로직을 나중에 추가했습니다.
