@@ -52,8 +52,8 @@
 
 https://www.data.go.kr/data/15095074/openapi.do <br>
 
-1. json 파싱 이후 배열을 재할당하는 함수를 실행합니다.<br>
-2. 파싱한 데이터를 순환하여(반복문), 객체 중 코드쉐어(codeshare)를 키로 Master{}, Slave[], SlaveIds{}로 재할당합니다.<br>
+1. json 호출 이후 배열을 재할당하는 함수를 실행합니다.<br>
+2. 호출된 데이터를 순환하여(반복문), 객체 중 코드쉐어(codeshare)를 키로 Master{}, Slave[], SlaveIds{}로 재할당합니다.<br>
 
 ##### [재배열 상세설명]
 
@@ -114,7 +114,7 @@ https://www.data.go.kr/data/15095074/openapi.do <br>
 ### 2.페이지생성
 
 검색, 소팅, Pagenation 기능등을 위해 변경되는 변수명을 전역변수에서 let으로 선언 후 재사용합니다<br>
-(dataList (파싱한 json데이터들을 재배열한 데이터들) , thisKey, pageSize, page, groupSize 등등 )
+(dataList (호출한 json데이터들을 재배열한 데이터들) , thisKey, pageSize, page, groupSize 등등 )
 
 여기서 만든 pageData()함수는 정보들이 변경되었을때 값을 받아와서 처리하고, 리스트업을 하는 코어 역활을 합니다.
 ```javascript
@@ -146,7 +146,7 @@ const pageData = (data, page, pageSize, day) => {
 
 ---
 
-### 3.입출국장 예고 API 호출<br>
+### 3.입/출국장 승객예고 API 호출<br>
 
 https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15095066<br>
 이 API는 1일치 데이터만 호출하기떄문에 2번 불러야 합니다. (오늘, 내일데이터)<br>
@@ -154,7 +154,7 @@ https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15095066<
 
 <br>
 
-1. json 파싱 후 함수로 가공 <br>
+1. json호출 후 함수로 가공 <br>
 2. 가공하는 함수 설명 (cateatCongestionData()) --> <br>
    2번(pageData)함수에서 이미 만들어진 list 인 li의 직계자손 div.rowItem을 선택자로 <br>
    선택자의 dataset을 키값으로 형제관계의 div를 만들어 html을 생성하는 함수을 실행하여 배치합니다.<br>
