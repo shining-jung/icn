@@ -407,6 +407,42 @@ nav > a:hover {
     font-size: 1rem;
 }
 
+.loadingWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    gap: 1.6rem;
+    z-index: 99;
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.loadingSpin {
+    border: 8px solid var(--color-w);
+    border-top: 8px solid var(--color-lg);
+    border-radius: 50%;
+    width: 8rem;
+    height: 8rem;
+    animation: rotate 1s linear infinite;
+}
+.loadingTxt::before {
+    content: '항공편을 불러오는 중입니다.';
+    color: var(--color-w);
+    letter-spacing: -0.01em;
+}
+
 @media (min-width: 640px) {
     .list_sort label .SearchBtn:hover {
         background: var(--color-lg);

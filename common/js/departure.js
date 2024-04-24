@@ -87,13 +87,20 @@ const creatHtml = (data) => {
 
 //첫번째 api
 const getLatestDatas = async () => {
+    document.querySelector('.loadingWrap').style.display = 'flex';
     thisKey.day = formattedToday.fullDate + formattedToday.hours;
     const url = new URL(`https://apis.data.go.kr/B551177/StatusOfPassengerFlightsDSOdp/getPassengerDeparturesDSOdp?serviceKey=${API_KEY}&type=json`);
-    const response = await fetch(url);
-    const data = await response.json();
-    dataList = data.response.body.items;
-    dataList = newDataList(dataList);
-    pageData(dataList, page, pageSize, thisKey.day);
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        dataList = data.response.body.items;
+        dataList = newDataList(dataList);
+        pageData(dataList, page, pageSize, thisKey.day);
+    } catch (error) {
+        console.error(error);
+    } finally {
+        document.querySelector('.loadingWrap').style.display = 'none';
+    }
 };
 
 // 두번쨰 API 호출

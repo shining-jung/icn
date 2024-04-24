@@ -35,7 +35,6 @@ dateSelect.innerHTML = `
 const creatTimeStVal = () => {
     let options = '';
     const todayHours = Number(formattedToday.hours);
-
     for (let i = 0; i < 24; i++) {
         const hour = i < 10 ? `0${i}` : `${i}`;
         const selected = i === todayHours ? ' selected' : '';
@@ -139,12 +138,12 @@ const newDataList = (dataList) => {
     const results = [];
     dataList.forEach((item) => {
         if (item.codeshare === 'Master') {
-            const masterArr = { Master: item, Slaves: [], SlaveIds: new Set() }; // 각 Master에 대한 Slave ID set 추가
+            const masterArr = { Master: item, Slaves: [], SlaveIds: new Set() };
             if (masterMap.has(item.flightId)) {
                 const masters = masterMap.get(item.flightId);
                 masters.push(masterArr);
             } else {
-                masterMap.set(item.flightId, [masterArr]); // 처음 보는 flightId
+                masterMap.set(item.flightId, [masterArr]);
             }
         } else if (item.codeshare === 'Slave' && item.masterflightid) {
             const masterEntries = masterMap.get(item.masterflightid);

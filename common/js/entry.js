@@ -1,7 +1,6 @@
 // APi - 인천국제공항공사_여객편 주간 운항 현황 (도착)
 const creatHtml = (data) => {
     let item = data.Master;
-
     let estimatedDateTime = `${item.estimatedDateTime.substring(8, 10)} : ${item.estimatedDateTime.substring(10, 12)}`;
     let scheduleDate = `${item.scheduleDateTime.substring(8, 10)} : ${item.scheduleDateTime.substring(10, 12)}`;
     let terminal = '';
@@ -42,7 +41,11 @@ const creatHtml = (data) => {
             <div class="rowItem" data-adate="${item.scheduleDateTime.substring(0, 8)}"  data-terminal="${item.terminalid}" data-scTime="${item.scheduleDateTime.substring(8, 10)}" >
                 <div class="itemTerminal">${terminal}</div>
                 <div class="itemTime">
-                    ${item.estimatedDateTime !== item.scheduleDateTime ? `<span class="delayTime">${scheduleDate}</span><strong>${estimatedDateTime}</strong>` : `<strong>${scheduleDate}</strong>`}
+                    ${
+                        item.estimatedDateTime !== item.scheduleDateTime
+                            ? `<span class="delayTime">예정 : ${scheduleDate}</span><strong>${estimatedDateTime}</strong>`
+                            : `<strong>${scheduleDate}</strong>`
+                    }
                     <span>${
                         item.estimatedDateTime !== item.scheduleDateTime
                             ? `${item.estimatedDateTime.substring(4, 6)}월 ${item.estimatedDateTime.substring(6, 8)}일`
@@ -80,13 +83,20 @@ const creatHtml = (data) => {
 
 //첫번째 api
 const getLatestDatas = async () => {
+    document.querySelector('.loadingWrap').style.display = 'flex';
     thisKey.day = formattedToday.fullDate + formattedToday.hours;
     const url = new URL(`https://apis.data.go.kr/B551177/StatusOfPassengerFlightsDSOdp/getPassengerArrivalsDSOdp?serviceKey=${API_KEY}&type=json`);
-    const response = await fetch(url);
-    const data = await response.json();
-    dataList = data.response.body.items;
-    dataList = newDataList(dataList);
-    pageData(dataList, page, pageSize, thisKey.day);
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        dataList = data.response.body.items;
+        dataList = newDataList(dataList);
+        pageData(dataList, page, pageSize, thisKey.day);
+    } catch (error) {
+        console.error(error);
+    } finally {
+        document.querySelector('.loadingWrap').style.display = 'none';
+    }
 };
 
 // 두번쨰 API 호출
