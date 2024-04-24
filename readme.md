@@ -108,6 +108,14 @@ Slave : [
 	 {  "airline": "기타항공" "flightId": "Z2889", .....}
 ]
 ```
+
+### 2.페이지생성 [pageData()함수]
+
+검색, 소팅, Pagenation 기능등을 위해 변경되는 변수명을 전역변수에서 let으로 선언 후 재사용합니다<br>
+(dataList (파싱한 json데이터들을 재배열한 데이터들) , thisKey, pageSize, page, groupSize 등등 )
+
+여기서 만든 pageData()함수는 정보들이 변경되었을때 값을 받아와서 처리하고, 리스트업을 하는 코어 역활을 합니다.
+```
 const pageData = (data, page, pageSize, day) => {
     let filterKeyword = thisKey.keyword;
     if (thisKey.keyword) {
@@ -129,15 +137,6 @@ const pageData = (data, page, pageSize, day) => {
     updatePagination(page, totalPage, pageSize, day);
 };
 ---
-
-### 2.페이지생성 [pageData()함수]
-
-검색, 소팅, Pagenation 기능등을 위해 변경되는 변수명을 전역변수에서 let으로 선언 후 재사용합니다<br>
-(dataList (파싱한 json데이터들을 재배열한 데이터들) , thisKey, pageSize, page, groupSize 등등 )
-
-여기서 만든 pageData()함수는 정보들이 변경되었을때 값을 받아와서 처리하고, 리스트업을 하는 코어 역활을 합니다.
-```
-
 ```
 1. 검색, 소팅, liast정렬을 위한 함수를 실행합니다.[filter()를 활용 하여 데이터를 처리 함.]<br>
 2. slice()를 이용하여 원하는만큼의 page만 생성 후 html의 리스트를 만드는 함수 실행합니다.<br>
