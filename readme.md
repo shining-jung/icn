@@ -52,7 +52,7 @@
 <br><br>
 ### 1.주간스케쥴 Json 데이터 구조화
 1. json 호출 이후 배열을 재할당하는 함수를 실행합니다.<br>
-2. 호출된 데이터를 순환하여(반복문), 객체 중 코드쉐어(codeshare)를 키로 Master{}, Slave[], SlaveIds{}로 재할당합니다.<br>
+2. 호출된 데이터를 순환하여, 객체 중 코드쉐어(codeshare)를 키로 Master{}, Slave[], SlaveIds{}로 재할당합니다.<br>
 
 기존 json 데이터 구조 (예시)
 
