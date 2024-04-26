@@ -55,7 +55,6 @@
 2. 호출된 데이터를 순환하여, 객체 중 코드쉐어(codeshare)를 키로 Master{}, Slave[], SlaveIds{}로 재할당합니다.<br>
 
 기존 json 데이터 구조 (예시)
-
 ```javascript
 "items": [
                 {
@@ -128,7 +127,6 @@ const pageData = (data, page, pageSize, day) => {
 };
 ---
 ```
-
 <br><br>
 ### 3.입/출국장 승객예고 API 호출
 이 API는 1일치 데이터만 호출하기떄문에 2번 불러야 합니다. (오늘, 내일데이터)<br>
@@ -136,6 +134,5 @@ const pageData = (data, page, pageSize, day) => {
 
 페이지생성 함수 아이템을 클릭했을때 slide 토글시키는 이벤트리스너를 실행합니다. 
 <br><br>
-
 ### 4.추가기능 함수들 작업
 변경되는 값들이 있을때 전역변수를 재할당 하거나 페이지생성 함수로 바로 보내서 가공하는 형태의 구조로 기능별로 구현했습니다.
